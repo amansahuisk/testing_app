@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hare Krishna Chanters Club</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <!-- <link rel="stylesheet" href="./action.php"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poetsen+One&display=swap');
+    </style>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        #Hero-SubSection-A {
+            padding-bottom: 10rem;
+        }
+
+        /* Extra Small Devices (Phones, <576px) */
+        @media (max-width: 575.98px) {
+            /* Your CSS here */
+
+            .text-2xl {
+                font-size: 1.1rem !important;
+            }
+        }
+
+        /* Small Devices (Phones in landscape, ≥576px) */
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            /* Your CSS here */
+
+            .text-2xl {
+                font-size: 1.1rem !important;
+            }
+        }
+
+        /* Medium Devices (Tablets, ≥768px) */
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            /* Your CSS here */
+        }
+
+        /* Custom Device (1020px wide) */
+        @media (max-width: 1020px) {
+            /* Your custom 1020px layout */
+
+
+        }
+
+        /* Large Devices (Laptops, ≥992px) */
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            /* Your CSS here */
+        }
+
+        /* Extra Large Devices (Desktops, ≥1200px) */
+        @media (min-width: 1200px) and (max-width: 1399.98px) {
+            /* Your CSS here */
+        }
+
+        /* Ultra Large Screens (4K etc., ≥1400px) */
+        @media (min-width: 1400px) {
+            /* Your CSS here */
+
+            #Hero-SubSection-A h1 {
+                font-size: 3rem !important;
+            }
+
+            #Hero-SubSection-A img {
+                height: 5rem !important;
+            }
+
+            .max-w-6xl {
+                max-width: 80% !important;
+            }
+
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 leading-relaxed">
+    <nav class="bg-white shadow-md sticky top-0 z-[999]">
+        <div class="flex justify-between items-center py-1 max-w-6xl mx-auto">
+            <img src="./Landing-Page/Desktop/Nav-Bar/logo.png" alt="Chanters Club Logo"
+                class="w-[50px] h-[50px] lg:w-[70px] lg:h-[70px] lg:hidden">
+            <img src="./Landing-Page/Desktop/Nav-Bar/logo.png" alt="Chanters Club Logo"
+                class="w-[50px] h-[50px] lg:w-[70px] lg:h-[70px] hidden lg:block absolute top-2">
+
+            <div></div>
+
+            <div class="flex items-center gap-4">
+                <a href="#registration"
+                    class="bg-pink-500 text-white px-4 py-1/2 lg:px-5 lg:py-2 rounded-lg lg:font-semibold">
+                    Join Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+    <header id="Hero-Section" class="hidden lg:flex relative text-white w-full min-h-[92vh] px-6 py-8 justify-center">
+        <!-- Desktop Background -->
+        <div class="absolute inset-0 bg-cover bg-center"
+            style="background-image: url('./Landing-Page/Desktop/Hero-Section/Hero-Section-Image.png');">
+        </div>
+
+        <!-- Content container -->
+        <div id="Hero-SubSection-A"
+            class="relative z-10 max-w-6xl w-full flex flex-row justify-between gap-10 items-center">
+            <!-- Left Text Section -->
+            <div class="text-left w-1/2">
+                <img src="./Landing-Page/Desktop/Hero-Section/logo.png" alt="Chanters Club Logo" class="w-28 mb-6">
+
+                <h1 class="text-4xl font-bold leading-tight font-['PT_Serif',serif] mb-4">
+                    Join the Global Hare Krishna<br />
+                    Chanters Club
+                </h1>
+
+                <p class="text-lg font-semibold mb-2 font-['PT_Serif',serif]">Chant Together, Grow Spiritually, Be
+                    Happy.</p>
+                <p class="mb-4 text-base leading-relaxed">
+                    A worldwide community dedicated to chanting the holy names of the Lord Krishna.
+                </p>
+
+                <a href="/krishnashraya/chanters-club" class="bg-white text-black px-5 py-2 rounded-md font-semibold hover:bg-gray-200 transition">
+                    Register Today
+                </a>
+
+                <p class="mt-2 text-sm">It's Easy, Fast & Effective!</p>
+            </div>
+
+            <!-- Right Visual Section -->
+            <div class="w-1/2 h-full flex justify-end">
+                <img src="./Landing-Page/Desktop/Hero-Section/logo1.png" alt="Visual Chakra" class="w-[90px] h-[90px]">
+            </div>
+        </div>
+
+        <!-- Bottom Quote -->
+        <div id="#bottom-quote" class="absolute bottom-10 w-full text-center z-10">
+            <p class="text-base leading-relaxed mb-2 font-['PT_Serif',serif]">
+                Hare Kṛṣṇa Hare Kṛṣṇa Kṛṣṇa Kṛṣṇa Hare Hare<br />
+                Hare Rāma Hare Rāma Rāma Rāma Hare Hare
+            </p>
+            <p class="text-xl font-['PT_Serif',serif]">
+                ‘Chant Hare Krishna In Exactly The Same Sound You Hear’
+            </p>
+        </div>
+    </header>
+
+    <header class="relative lg:hidden text-white w-full h-[135vh] min-h-screen px-6 flex justify-center">
+        <!-- Mobile Background -->
+        <div class="absolute inset-0 top bg-cover"
+            style="background-image: url('./Landing-Page/Mobile-Version/Hero-Section/Background.png');">
+        </div>
+
+        <!-- Content container -->
+        <div class="relative z-10 text-center max-w-xl w-full">
+            <div class="flex justify-between items-center mt-2">
+                <img src="./Landing-Page/Mobile-Version/Hero-Section/image 8.png" alt="Chanters Club Logo"
+                    class="w-14 mx-auto mb-6">
+                <img src="./Landing-Page/Mobile-Version/Hero-Section/Hero-Section-Logo-1.png" alt="Chanters Club Logo"
+                    class="w-12 mx-auto mb-6">
+                <img src="./Landing-Page/Mobile-Version/Hero-Section/image 9.png" alt="Chanters Club Logo"
+                    class="w-12 mx-auto mb-6">
+            </div>
+        </div>
+
+        <!-- Bottom Quote -->
+        <div class="absolute bottom-6 w-full text-center z-10 px-4">
+            <div class="w-36 h-36 mx-auto mb-6 rounded-full border-4 border-white overflow-hidden">
+                <img src="./Landing-Page/Desktop/Nav-Bar/logo.png"
+                    alt="Sri Madhu Pandit Dasa" class="object-cover w-full h-full">
+            </div>
+
+            <h2 class="text-2xl lg:text-3xl font-bold font-['PT_Serif',serif] mb-4">
+                Thank You for Registering!
+            </h2>
+            <p class=" text-base lg:text-lg mb-6">
+                We have received your registration. Our team will get back to you soon.
+            </p>
+            <p class="text-sm">
+                Meanwhile, feel free to explore our chanting resources and connect with the community.
+            </p>
+        </div>
+    </header>
+
+    <section id="thankyou" class="bg-green-50 py-16 px-6 lg:px-20 text-center hidden lg:block">
+        <div class="max-w-2xl mx-auto">
+            <img src="./Landing-Page/Desktop/Nav-Bar/logo.png" alt="Logo" class="w-20 mx-auto mb-6" />
+            <h2 class="text-2xl lg:text-3xl font-bold text-green-700 font-['PT_Serif',serif] mb-4">
+                Thank You for Registering!
+            </h2>
+            <p class="text-gray-700 text-base lg:text-lg mb-6">
+                We have received your registration. Our team will get back to you soon.
+            </p>
+            <p class="text-sm text-gray-500">
+                Meanwhile, feel free to explore our chanting resources and connect with the community.
+            </p>
+        </div>
+    </section>
+
+
+    <script>
+        function confirmJoin() {
+            document.getElementById('confirmation-message').classList.remove('hidden');
+            document.getElementById('confirmation-message').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    </script>
+
+
+    <footer class="bg-[#c70063] text-white px-6 md:px-16 py-10 border-t border-white/20">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-10">
+            <!-- Left Section -->
+            <div>
+                <img src="./Landing-Page/Desktop/Footer/Logo.png" alt="Logo" class="w-16 mb-4">
+                <p class="text-sm leading-relaxed mb-4">
+                    <span>Chant. Connect. Transform.</span><br>
+                    Uniting hearts around the world through<br>
+                    the sacred sound of the Hare Krishna Mahamantra.
+                </p>
+                <div class="flex gap-4 mt-2">
+                    <a href="#"><img src="./Landing-Page/Desktop/Footer/Vector.png" alt="Facebook" class="w-6 h-6"></a>
+                    <a href="#"><img src="./Landing-Page/Desktop/Footer/Vector-1.png" alt="Instagram"
+                            class="w-6 h-6"></a>
+                    <a href="#"><img src="./Landing-Page/Desktop/Footer/Vector-2.png" alt="LinkedIn"
+                            class="w-6 h-6"></a>
+                    <a href="#"><img src="./Landing-Page/Desktop/Footer/Frame.png" alt="YouTube" class="w-6 h-6"></a>
+                </div>
+            </div>
+
+            <!-- Middle Section -->
+            <div>
+                <h2 class="font-semibold mb-4">Quick Links</h2>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:underline">Srila Prabhupada books</a></li>
+                    <li><a href="#" class="hover:underline">Chanting resources</a></li>
+                    <li><a href="#" class="hover:underline">Volunteer opportunities</a></li>
+                </ul>
+            </div>
+
+            <!-- Right Section -->
+            <div>
+                <h2 class="font-semibold mb-4">Contact Us</h2>
+                <ul class="text-sm space-y-2">
+                    <li>connect@iskconbangalore.org</li>
+                    <li>+91 8023471956</li>
+                    <li>
+                        Hare Krishna Hill, Chord Road,<br>
+                        Rajajinagar, Bengaluru 560010,<br>
+                        Karnataka, India.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Links -->
+        <div class="mt-10 text-center text-sm space-x-6 text-white/90">
+            <a href="#" class="hover:underline">About Us</a>
+            <a href="#" class="hover:underline">Terms & Conditions</a>
+            <a href="#" class="hover:underline">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
