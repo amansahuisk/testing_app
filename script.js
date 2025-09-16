@@ -55,12 +55,49 @@ window.onload = function () {
 };
 
 function populateCommitOptions(data) {
+    const volunteerSelect = document.getElementById("volunteer");
+    volunteerSelect.innerHTML = "";
+    // Add default option
+    const volunteerdefaultOption = document.createElement("option");
+    volunteerdefaultOption.value = "";
+    volunteerdefaultOption.textContent =
+        "Would you like to do volunteer service in temple?*";
+    volunteerSelect.appendChild(volunteerdefaultOption);
+    // Ensure data.countries exists and is an array
+    if (Array.isArray(data.volunteer)) {
+        data.volunteer.forEach((volunteer) => {
+            const option = document.createElement("option");
+            option.value = volunteer.value;
+            option.textContent = volunteer.label;
+            volunteerSelect.appendChild(option);
+        });
+    }
+
+    const progressSelect = document.getElementById("progress");
+    progressSelect.innerHTML = "";
+    // Add default option
+    const progressdefaultOption = document.createElement("option");
+    progressdefaultOption.value = "";
+    progressdefaultOption.textContent =
+        "Would you like to progress spiritually?*";
+    progressSelect.appendChild(progressdefaultOption);
+    // Ensure data.countries exists and is an array
+    if (Array.isArray(data.progress)) {
+        data.progress.forEach((progress) => {
+            const option = document.createElement("option");
+            option.value = progress.value;
+            option.textContent = progress.label;
+            progressSelect.appendChild(option);
+        });
+    }
+
     const chantSelect = document.getElementById("chant_commitment");
     chantSelect.innerHTML = "";
     // Add default option
     const chantdefaultOption = document.createElement("option");
     chantdefaultOption.value = "";
-    chantdefaultOption.textContent = "Do you chant regularly?";
+    chantdefaultOption.textContent =
+        "Will you chant everyday 108 times Hare Krishna Mahamantra?*";
     chantSelect.appendChild(chantdefaultOption);
     // Ensure data.countries exists and is an array
     if (Array.isArray(data.chant)) {
@@ -72,20 +109,21 @@ function populateCommitOptions(data) {
         });
     }
 
-    const languageSelect = document.getElementById("preffer_language");
-    languageSelect.innerHTML = "";
+    const gitaSelect = document.getElementById("gita_class");
+    gitaSelect.innerHTML = "";
     // Add default option
-    const languagedefaultOption = document.createElement("option");
-    languagedefaultOption.value = "";
-    languagedefaultOption.textContent = "Preffered Language";
-    languageSelect.appendChild(languagedefaultOption);
+    const gitadefaultOption = document.createElement("option");
+    gitadefaultOption.value = "";
+    gitadefaultOption.textContent =
+        "Would you like to join Online Gita Classes?*";
+    gitaSelect.appendChild(gitadefaultOption);
     // Ensure data.countries exists and is an array
-    if (Array.isArray(data.language)) {
-        data.language.forEach((language) => {
+    if (Array.isArray(data.gita)) {
+        data.gita.forEach((gita) => {
             const option = document.createElement("option");
-            option.value = language.value;
-            option.textContent = language.label;
-            languageSelect.appendChild(option);
+            option.value = gita.value;
+            option.textContent = gita.label;
+            gitaSelect.appendChild(option);
         });
     }
 }
@@ -114,140 +152,6 @@ function populateCountrySelect(data) {
     }
 }
 
-function submitForm(e) {
-    e.preventDefault();
-
-    console.log("Form submitted");
-
-    document.getElementById("submitButton").disabled = true;
-    document.getElementById("submitButton").innerHTML = "Submitting...";
-
-    var isValid = true;
-    document.getElementById("fullnameError").textContent = "";
-    // document.getElementById("cityError").textContent = "";
-    document.getElementById("emailError").textContent = "";
-
-    if (fullnameId.value.trim() === "") {
-        document.getElementById("fullnameError").textContent =
-            "Full Name is required.";
-        fullnameId.focus();
-        isValid = false;
-    } else {
-        document.getElementById("fullnameError").textContent = "";
-    }
-
-    var mobileValue = mobileId.value.trim();
-    var mobileRegex = /^[6-9]\d{9}$/;
-
-    function allDigitsSame(str) {
-        return /^(\d)\1{9}$/.test(str);
-    }
-    if (!mobileRegex.test(mobileValue)) {
-        document.getElementById("mobileError").textContent =
-            "Mobile number must be 10 digits";
-        mobileId.focus();
-        isValid = false;
-    } else if (allDigitsSame(mobileValue)) {
-        document.getElementById("mobileError").textContent =
-            "Mobile number cannot have all digits the same.";
-        mobileId.focus();
-        isValid = false;
-    } else {
-        document.getElementById("mobileError").textContent = "";
-    }
-
-    if (
-        emailId.value.trim() !== "" &&
-        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailId.value.trim())
-    ) {
-        document.getElementById("emailError").textContent =
-            "Please enter a valid email address.";
-        emailId.focus();
-        isValid = false;
-    } else {
-        document.getElementById("emailError").textContent = "";
-    }
-
-    if (!countryId.value || countryId.value === "") {
-        // document.getElementById("countryError").textContent =
-        ("Country is required.");
-        countryId.focus();
-        isValid = false;
-    } else {
-        // document.getElementById("countryError").textContent = "";
-    }
-
-    if (cityId.value.trim() === "") {
-        // document.getElementById("cityError").textContent = "City is required.";
-        alert("City is required.");
-        cityId.focus();
-        isValid = false;
-    } else {
-        // document.getElementById("cityError").textContent = "";
-    }
-
-    if (!chant_commitmentId.value || chant_commitmentId.value === "") {
-        document.getElementById("chant_commitmentError").textContent =
-            "Chant commitment is required.";
-        chant_commitmentId.focus();
-        isValid = false;
-    } else {
-        document.getElementById("chant_commitmentError").textContent = "";
-    }
-
-    if (!preffer_languageId.value || preffer_languageId.value === "") {
-        document.getElementById("preffer_languageError").textContent =
-            "Language is required.";
-        preffer_languageId.focus();
-        isValid = false;
-    } else {
-        document.getElementById("preffer_languageError").textContent = "";
-    }
-
-    if (!isValid) {
-        e.preventDefault(); // Prevent form submission
-        setTimeout(() => {
-            document.getElementById("submitButton").disabled = false;
-            document.getElementById("submitButton").innerHTML =
-                "Submit Registration";
-        }, 2000);
-        return;
-    } else {
-        const payload = {
-            fullname: fullnameId.value,
-            mobile: mobileId.value,
-            email: emailId.value,
-            country: countryId.value,
-            city: cityId.value,
-            chant_commitment: chant_commitmentId.value,
-            language: preffer_languageId.value,
-        };
-
-        fetch("action.php?action=chanters-club-registration", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(payload),
-        })
-            .then((response) => response.json())
-            .then((res) => {
-                REGID = res.REGID ? res.REGID : "";
-                registerAgain(REGID);
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-            });
-        setTimeout(() => {
-            document.getElementById("submitButton").disabled = false;
-            document.getElementById("submitButton").innerHTML =
-                "Join Now";
-        }, 2000);
-    }
-}
-
 function registerAgain(regId) {
-    window.location.href = `/krishnashraya/chanters-club/confirmation.php?regId=${btoa(
-        regId
-    )}`;
+    window.location.href = `/krishnashraya/chanters-club/confirmation`;
 }

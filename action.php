@@ -53,16 +53,36 @@ switch ($path) {
         break;
 
     case 'chanters-club-registration':
+        // file_put_contents('php://stderr', print_r($input, true));
         $data = [
             'accessKey'         => $accessKey,
             'fullname'          => $input['fullname'] ?? '',
+            'gender'            => $input['gender'] ?? '',
+            'education'         => $input['education'] ?? '',
+            'company'           => $input['company'] ?? '',
+            'designation'       => $input['designation'] ?? '',
+            'motherTongue'      => $input['motherTongue'] ?? '',
+            'language'          => $input['language'] ?? '',
+            'state'             => $input['state'] ?? '',
+            'city'              => $input['city'] ?? '',
+            'area'              => $input['area'] ?? '',
+            'dob'               => $input['dob'] ?? '',
             'mobile'            => $input['mobile'] ?? '',
             'email'             => $input['email'] ?? '',
-            'city'              => $input['city'] ?? '',
-            'language'          => $input['language'] ?? '',
-            'chant_commitment'  => $input['chant_commitment'] ?? '',
+            'marital'           => $input['marital'] ?? '',
             'country'           => $input['country'] ?? '',
+            'progress'          => $input['progress'] ?? '',
+            'volunteer'         => $input['volunteer'] ?? '',
+            'chant_commitment'  => $input['chant_commitment'] ?? '',
+            'gita_class'        => $input['gita_class'] ?? '',
+            'Center'            => $input['Center'] ?? '',
+            'CN'                => $input['CN'] ?? '',
         ];
+        // echo "<pre>";
+        // var_dump($data);
+        // echo "</pre>";
+        // die;
+
         $payload = json_encode($data);
         $response = callExternalApi($APIURL . 'chanters-club-registration', $payload);
         echo $response;
@@ -104,6 +124,46 @@ switch ($path) {
 
         echo $response;
         break;
+
+    case 'validate-chanter-mobile-number':
+
+        $payload = json_encode([
+            'accessKey' => $accessKey,
+            'mobile'     => $input['mobile'] ?? ''
+        ]);
+
+        $apiUrl = $APIURL . 'validate-chanter-mobile-number'; // Using same endpoint for validation
+
+        $ch = curl_init($apiUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+            'Content-Length: ' . strlen($payload)
+        ]);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+
+        $response = curl_exec($ch);
+
+        if (curl_errno($ch)) {
+            echo json_encode(['error' => curl_error($ch)]);
+            curl_close($ch);
+            exit;
+        }
+
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($httpCode !== 200) {
+            http_response_code($httpCode);
+            echo json_encode(['error' => "HTTP error! Status: $httpCode"]);
+            exit;
+        }
+
+        $decoded = json_decode($response, true);
+        echo $response;
+        break;
+
 
     default:
         http_response_code(404);
